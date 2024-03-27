@@ -18,12 +18,16 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
-from loads.views import LoadsViewSet
+import loads.views
+from cars.views import CarViewSet
+from loads.views import LoadViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
 router = SimpleRouter()
-router.register(r'load',viewset=LoadsViewSet)
+router.register(r'loads', viewset=LoadViewSet, basename='load')
+router.register(r'cars', viewset=CarViewSet)
+
 urlpatterns += router.urls

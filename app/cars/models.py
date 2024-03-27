@@ -17,3 +17,10 @@ class Car(models.Model):
 
     def __str__(self):
         return f'Numb : {self.number}, Location : {self.current_location.city}, Max lift : {self.lifting_capacity}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        from loads.models import Load
+        for i in Load.objects.all():
+            from business_logic.set_relations import set_relations
+            set_relations(load=i,car=self)

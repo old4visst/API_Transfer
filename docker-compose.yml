@@ -1,4 +1,10 @@
 services:
+  database:
+    image: postgres:14.6-alpine
+    environment:
+      - POSTGRES_DB=dbname
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=pass
   web-app:
     build:
       context: .
@@ -18,9 +24,3 @@ services:
     depends_on:
       - database
 
-  database:
-    image: postgres:14.6-alpine
-    environment:
-      - POSTGRES_DB=dbname
-      - POSTGRES_USER=dbuser
-      - POSTGRES_PASSWORD=pass
