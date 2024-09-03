@@ -1,3 +1,6 @@
 [submodule "API_Transfer"]
 	path = API_Transfer
 	url = https://github.com/old4visst/API_Transfer
+[submodule "default-service-with-docker"]
+	path = default-service-with-docker
+	url = https://github.com/old4visst/default-service-with-docker
